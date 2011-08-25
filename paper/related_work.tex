@@ -1,0 +1,92 @@
+\documentclass[conference]{IEEEtran}
+%\usepackage{cite}
+\usepackage[pdftex]{graphicx}
+%\graphicspath{{images/}}
+\DeclareGraphicsExtensions{.pdf}
+\usepackage{array}
+\usepackage{url}
+\usepackage{amsmath}
+
+% correct bad hyphenation here
+%\hyphenation{}
+
+\begin{document}
+\title{Using Interactive Protocols to Gain Power Savings in Wireless Communication}
+
+\author{\IEEEauthorblockN{Nicholas Farnan and James Larkby-Lahet}
+\IEEEauthorblockA{Department of Computer Science, University of Pittsburgh\\ Pittsburgh, PA 15260 -- USA \\ Email: \{nlf4,jamesll\}@cs.pitt.edu}}
+\maketitle
+
+\begin{abstract}
+mah abstract, it r here
+\end{abstract}
+
+\section{Introduction}
+
+i also has an introduction
+
+\section{Background}
+
+
+
+\section{Related Work}
+
+In \cite{Adler98}, Adler and Maggs propose that asymmetric
+communication channels could be exploited for the purposes of saving
+power in wireless transmission.  Their communication model consists of
+a client that wishes to send some data drawn from a probability
+distribution $D$ to a server, where the server has knowledge of $D$
+which the client lacks.  The server uses the asymmetry of
+communication channels to send information about D to the client whose
+responses can not only effectively communicate the intended data, but
+also do so efficiently, minimizing the amount of data actually sent
+from the client to the server. They propose protocols that will result
+in an expectation of O($n$) bits being sent by the server and
+O(H($D$)$ + 1$) bits being sent by the client where $n$ is the number
+of bits in the data the client wishes to communicate with the server
+and H($D$) being the binary entropy of $D$.  They offer two varieties
+of such protocols, one where data is exchanged over some number of
+rounds, and another where all communication occur in a single round at
+the cost of additional server-side computation.  In both cases, one
+round involves a single communication from server to client and
+another single response.\\
+
+This work was followed up by \cite{Watkinson01}, in which Watkinson,
+Adler, and Fich provide protocols that result in H($D$)$ + 2$ bits
+sent by the client in expectation and $n$(H($D$)$ + 2$)) bits sent by
+the server in expectation.  Similar to \cite{Adler98}, the authors
+provide both multi-round and single-round variations of their
+protocol.  Again, the single-round variant comes at the cost of
+additional server-side computation.\\
+
+All of the above protocols were supplanted by Gagie's work in
+\cite{Gagie06} where he showed that any dynamic instantaneous
+compression algorithm could be converted to an asymmetric
+communication protocol.  The intuition behind this is that Shannon's
+theory requires the client to send H(D) bits, which is achieved by the
+entropic encoding.  The only relevant information that the server may possess
+that the client does not is the distribution observed across many
+messages, including those from nodes other than the client.  By
+transmitting this distribution, the dynamic instantaneous (one-pass)
+encoder starts with a more representative distribution than the
+uniform distribution it initially would assume.\\
+
+Gagie's model of communication also differs from those previously
+proposed in that he does not require the server to have pre-existing
+knowledge of $D$ and instead accounts for the server aquire such
+knowledge on-line as it receives messages from clients.
+
+The work presented here is an implementation of Gagie's proposed
+protocol.  It differs from Gagie's work in \cite{Gagie06} in that we
+provide experimental results showing the effectiveness of using
+dynamic instantaneous compression algorithms to reduce the amount of
+data a client sends in order to communicate a message, as well as the
+power savings that can be gleaned from the use of such a protocol.
+
+\section{Implementation}
+
+%Our implementation consists of an one pass range encoding compression algorithm that depends on a frequency distribution over all symbols in the alphabet of the message being sent.  This distribution is supplied to the client by the server.  The server begins with a flat model of equivalent frequencies for all symbols and updates this ditribution as
+
+\bibliographystyle{IEEEtran}
+\bibliography{firehose}
+\end{document}

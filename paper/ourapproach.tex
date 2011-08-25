@@ -1,0 +1,27 @@
+\section{Our Approach}
+
+Having demonstrated the feasibility of replacing transmitted bits with
+received bits and the subsequent potential for power savings, we went
+on to validate this technique with an implementation.\\
+
+Our approach was that of Gagie, starting with the server's
+transmission of the probability distribution for the symbols in our
+alphabet (in this case, all possible 8-bit symbols).  The server
+updates this distribution after each transmission in order to provide
+up-to-date information to the client.\\
+
+We chose range encoding as our entropic compression algorithm, rather
+than Huffman Coding as Gagie suggested.  Range encoding produces a
+single codeword of output, allowing it to represent symbols using
+fractional bits (sharing the remainder with subsequent code words),
+and therefore more closely approach H(D).\\
+
+After recieving the distribution, the client uses it to apply a
+dynamic range encoding, updating the distribution after each symbol is
+encoded. The client then sends the encoded message to the server.  The
+server, while decoding the message, must update the distribution in
+the same manner as the client in order to properly decode the message,
+and in doing so also updates the distribution to reflect the received
+message.\\
+
+

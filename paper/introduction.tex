@@ -1,0 +1,82 @@
+
+\section{Abstract}
+{\it
+
+//}
+
+\section{Introduction}
+Wireless communication devices are becoming commonplace across many
+different application domains.  The characteristics of phone, wifi,
+sensor and bluetooth networks and devices are quite diverse, however
+several commonalities exist.\\  
+
+Power concerns are common in wireless networks, as we frequently wish
+to cut power cords as well as Ethernet cables.  Wireless nodes are
+force to rely on limited battery capacity to provide the maximum
+length of availability.  Recharging or replacing batteries ranges from
+difficult or impossible in remote sensor network deployments, such as
+jungle and marshland environmental monitoring, to major inconvenience in
+the case of of personal electronics in the hands of a traveler.{CITE
+  SOMETHING FOR THE LOVE OF GOD}\\
+
+One interesting property of wireless networks that is often exploited
+for wireless power management is asymmetry in the power levels of
+various network nodes {\em XXX: CITE}.  At one level, some nodes,
+frequently including routers to external networks, are connected to
+power mains and do not rely on battery power.  These nodes may be able
+to spend more energy in order to reduce energy expenditure in battery
+powered nodes, for example by serving as routers for messages between
+nodes.\\
+
+In a cooperative setting, such as sensor networks, the locked-down
+networks of cellular carriers or the collaborative WiFi mesh of the One
+Laptop Per Child project's XO computer, the global usefulness of a
+network can outweigh the individual power hoarding of nodes.  As many
+sensor network nodes double as routers for other nodes' data, it is
+important to keep as many nodes alive as possible.  In this setting
+nodes may develop individual variations in power level, due to variation
+in sensing and particularly routing workload.  We may wish to spend
+more power on nodes with extra battery life if we can extend the
+battery life of more significantly drained nodes.\\
+
+It is natural that power-aware ad-hoc routing protocols have been
+studied to reduce variability in node power levels thereby extending
+the amount of time the network operates at maximum node strength,
+perhaps at the cost of network life as node batteries become fully
+drained, and the chances of network partition increase dramatically.
+These protocols adjust the optional transmission data.  While messages
+certainly must be sent, individual nodes do not necessarily need to
+participate, and the choice of participants is the output of the
+algorithm.\\
+
+For a given node that is required to transmit data, these algorithms
+can reduce the energy cost of transmission, however their sole
+mechanism for doing so is the selection of a closer communication
+partner for reduced transmission power, and hence energy
+consumption.\\
+
+Given the necessity of a communication in a wireless power-constrained
+network, two cases allowing for energy optimization may exist.  We
+aimed to address the case where a power-poor node must communicate
+with an less energy-constrained receiver.  Specifically, we
+investigated the potential for energy savings via interactive
+communication, where the receiver may also transmit data to the sender
+in an attempt to reduce the number of bits that must be sent, and
+hence total energy consumed by the sender.  This is only possible if
+the energy required to receive the additional bits is less than the
+energy that would have been spent to transmit the additional bits.  We
+demonstrate that this is indeed the case for a variety of real world
+devices.\\
+
+In the second case, an energy-rich sender node may attempt to reduce the
+energy used by a energy-poor receiver by compressing data or using a
+higher transmission rate to reduce the amount of time the receiver
+spends receiving data.  There is no incentive to transmit data from
+the receiver in this case as it can only increase the amount of energy
+consumed; hence we do not address this case with this technique.\\
+
+The remained of this paper is structured as follows, Section 2
+presents background on the power characteristics of modern wireless
+and sensor devices.  Section 3 presents related work.  Section 4
+describes our approach.  In Section 5 we present and analyze experimental
+results and conclude with Section 6.\\
